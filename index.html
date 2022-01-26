@@ -2,12 +2,107 @@
 <html>
   <head>
     <title>Calculator Project</title>
+    <link rel="stylesheet" type="text/css" href="src/styles.css" />
     <meta charset="UTF-8" />
   </head>
 
   <body>
-    <div id="app"></div>
+    <table class="calculator">
+      <tr>
+        <!--Display area's html code-->
+        <td colspan="3"><input id="display-box" type="text" disabled /></td>
 
-    <script src="src/index.js"></script>
+        <!--Buttons-->
+        <!--Clear Screen "C" button-->
+      </tr>
+
+      <tr>
+        <td>
+          <button
+            class="button"
+            onclick="clearScreen()"
+            style="background-color: red;"
+          >
+            C
+          </button>
+        </td>
+        <td>
+          <button class="button" onclick="calculatePercentage('%')">%</button>
+        </td>
+      </tr>
+      <!--Second Row for numbers 7, 8, 9 and /-->
+      <tr>
+        <td><button class="button" onclick="display('7')">7</button></td>
+        <td><button class="button" onclick="display('8')">8</button></td>
+        <td><button class="button" onclick="display('9')">9</button></td>
+        <td><button class="button" onclick="display('/')">/</button></td>
+      </tr>
+      <!--Third Row for numbers 4, 5, 6 and *-->
+      <tr>
+        <td><button class="button" onclick="display('4')">4</button></td>
+        <td><button class="button" onclick="display('5')">5</button></td>
+        <td><button class="button" onclick="display('6')">6</button></td>
+        <td><button class="button" onclick="display('*')">*</button></td>
+      </tr>
+      <!--Fourth Row for numbers 1, 2, 3 and - -->
+      <tr>
+        <td><button class="button" onclick="display('1')">1</button></td>
+        <td><button class="button" onclick="display('2')">2</button></td>
+        <td><button class="button" onclick="display('3')">3</button></td>
+        <td><button class="button" onclick="display('-')">-</button></td>
+      </tr>
+      <!--Fifth Row for numbers ., 0, = and + -->
+      <tr>
+        <td><button class="button" onclick="display('.')">.</button></td>
+        <td><button class="button" onclick="display('0')">0</button></td>
+        <td>
+          <button
+            class="button"
+            onclick="calculate()"
+            style="background-color: cyan;"
+          >
+            =
+          </button>
+        </td>
+        <td><button class="button" onclick="display('+')">+</button></td>
+      </tr>
+    </table>
+
+    <script>
+      /**
+       * This javascript script is used by the HTML document to do various operations defined in the calculator.
+       * There are three functions defined:
+       *
+       * 1) clearScreen() = Clears the calculator screen.
+       * 2) display(numberOrOperator) = Any number or opearator clicked will be appended to the display.
+       * 3) calculate() = This method will evaluate the expression on the display screen using the eval() of javascript.
+       */
+
+      //clearScreen method
+      function clearScreen() {
+        document.getElementById("display-box").value = "";
+      }
+
+      //display method
+      function display(numberOrOperator) {
+        document.getElementById("display-box").value += numberOrOperator;
+      }
+
+      //calculate method
+      function calculate() {
+        var valueDisplayed = document.getElementById("display-box").value;
+        var expressionEvaluate = eval(valueDisplayed);
+
+        document.getElementById("display-box").value = expressionEvaluate;
+      }
+
+      function calculatePercentage() {
+        var valueDisplayed = document.getElementById("display-box").value;
+        var expressionEvaluate = eval(valueDisplayed);
+        expressionEvaluate /= 100;
+
+        document.getElementById("display-box").value = expressionEvaluate;
+      }
+    </script>
   </body>
 </html>

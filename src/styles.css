@@ -1,3 +1,36 @@
-body {
-  font-family: sans-serif;
+.calculator {
+  margin: auto;
+  padding: 10px;
+  border: 1em solid;
+  height: 380px;
+  width: 400px;
+  background-color: #191b28;
+  box-shadow: rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+#display-box {
+  font-family: "Courier New", Courier, monospace;
+  background-color: #dcdbe1;
+  border: solid black 0.5px;
+  color: black;
+  border-radius: 5px;
+  width: 100%;
+  height: 65%;
+}
+
+.button {
+  font-family: "Courier New", Courier, monospace;
+  background-color: #6b2329;
+  color: white;
+  border: solid black 0.5px;
+  width: 100%;
+  border-radius: 5px;
+  height: 70%;
+  outline: none;
+}
+
+.button:active {
+  background: #e5e5e5;
+  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+  -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+  box-shadow: inset 0px 0px 5px #c1c1c1;
 }
